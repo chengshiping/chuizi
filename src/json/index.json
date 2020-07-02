@@ -1,0 +1,49 @@
+{
+    "banner":"'../img/banner1.jpg','../img/banner2.jpg','../img/banner3.jpg', '../img/banner4.jpg'",
+    "goods":[["坚果 Pro3 及配件",
+        {"img":"../img/goods1_1.jpg"},
+        {"title":"坚果 Pro 3白","data":"高通骁龙™ 855Plus · 4800 万模范四摄 · Smartisan OS 7.0","data1":"坚果3限时直降","price1":"￥2,599.00","price2":"￥3,199.00","img":"../img/goods1_2.jpg"},
+        {"title":"坚果 Pro 3绿","data":"高通骁龙™ 855Plus · 4800 万模范四摄 · Smartisan OS 7.0","data1":"坚果3限时直降","price1":"￥2,599.00","price2":"￥3,199.00","img":"../img/goods1_3.jpg"},
+        {"title":"Smartisan  颈挂蓝牙耳机","data":"“圈铁一体代表作”","data1":"精品配件 限时直降","price1":"￥179.00","price2":"￥199.00","img":"../img/goods1_4.jpg"},
+        {"title":"Smartisan 真无线TWS蓝牙耳机","data":"“智能配对 开盖即连”","data1":"精品配件 限时直降","price1":"￥249.00","price2":"","img":"../img/goods1_5.jpg"},
+        {"title":"坚果快充移动电源 20000mAh（45W MAX)","data":"“充电狂人的大满足”","data1":"精品配件 限时直降","price1":"￥155.00","price2":"￥240.00","img":"../img/goods1_6.jpg"},
+        {"title":"FERACE智能健康手表","data":"“对时间精准把控”","data1":"精品配件 限时直降","price1":"￥249.00","price2":"￥299.00","img":"../img/goods1_7.jpg"}],
+    ["足迹系列保护套",
+        {"img":"../img/goods2_1.jpg"},
+        {"title":"坚果 Pro 3 足迹保护套 德国天文学家开普勒出生","data":"这一次，两面都有好故事","data1":"精品配件 限时直降","price1":"￥44.00","price2":"￥49.00","img":"../img/goods2_2.jpg"},
+        {"title":"坚果 Pro 3 smartisan 复古相机保护套","data":"让你的坚果 Pro3化身为一台现代的“复古相机","data1":"坚果3限时直降","price1":"￥44.00","price2":"￥49.00","img":"../img/goods2_3.jpg"},
+        {"title":"坚果 Pro 3 足迹保护套 克里斯蒂安·多普勒出生","data":"“这一次，两面都有好故事”","data1":"精品配件 限时直降","price1":"￥44.00","price2":"￥49.00","img":"../img/goods2_4.jpg"},
+        {"title":"足迹保护套 莱卡成为第一只进入地球轨道的动物 for iPhone 11","data":"“公益宝贝”","data1":"精品配件 限时直降","price1":"￥59.00","price2":"￥69.00","img":"../img/goods2_5.jpg"},
+        {"title":"坚果 Pro 3 足迹保护套 莫里斯·詹姆士·麦当劳出生","data":"“这一次，两面都有好故事”","data1":"精品配件 限时直降","price1":"￥44.00","price2":"￥49.00","img":"../img/goods2_6.jpg"},
+        {"title":"足迹保护套  英国科学杂志《自然》出版 for iPhone 11","data":"“公益宝贝”","data1":"精品配件 限时直降","price1":"￥59.00","price2":"￥69.00","img":"../img/goods2_7.jpg"}]],
+
+    "nav_phone":[
+        {"img":"../img/goods1_3.jpg","title":"坚果 Pro3","price":"￥2,999.00"},
+        {"img":"../img/goods1_2.jpg","title":"坚果 Pro3","price":"￥2,999.00"}
+    ],
+    "nav_pj":[
+        {"img":"../img/pj_1.jpg","title":"C-force  USB-C多功能转接器","price":"￥148.00"},
+        {"img":"../img/pj_2.jpg","title":"可折叠多功能桌面手机支架","price":"￥35"}
+    ],
+    "nav_clear":[
+        {"img":"../img/clear_1.jpg","title":"科沃斯扫地机器人  DH45","price":"￥1,799.00","data":"智能规划"},
+        {"img":"../img/clear_2.jpg","title":"科沃斯扫地机器人 DK35","price":"￥1,699.00"},
+        {"img":"../img/clear_2.jpg","title":"科沃斯扫地机器人 DN55","price":"￥2,399.00"}
+    ],
+    "goodstop":["../img/goodstop1.jpg","../img/goodstop2.jpg","../img/goodstop3.jpg","../img/goodstop4.jpg"]
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

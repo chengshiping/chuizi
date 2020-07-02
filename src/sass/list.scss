@@ -1,6 +1,185 @@
-.wrap{
-    h1{
-        font-size:26px;
-        color:yellow;
+body{
+    background:url(../img/dlbg.jpg) repeat 100%;
+    .toshouye{
+        position:absolute;
+        left:150px;
+        top:10px;
+        display:block;
+        width:60px;
+        height:30px;
+        background:white;
+        text-align:center;
+        font-size:24px;
+        line-height:30px;
+        font-weight:900;
+        color:#333;
+        border-radius:5px;
+        z-index:99;
+    }
+    .box{
+        background:#fff;
+        width:450px;
+        border-radius:10px;
+        border: 1px solid #dadada;
+        margin:70px auto;
+        height:580px;
+        .title{
+            height:95px;
+            padding-top:75px;
+            margin:23px 0 50px;
+            background:url(../img/dllog.jpg) no-repeat top center;
+            h4{
+                font-size:20px;
+                line-height:20px;
+                color:#333;
+                font-weight:400;
+                text-align:center;
+                margin:70px 0 0 0;
+            }
+        }
+        .bottom{
+            padding:0 40px;
+            ul{
+                width:100%;
+                ._1,._2{
+                    margin-bottom:15px;
+                    height:48px;
+                    .inp{
+                        border: #ccc solid 1px;
+                        border-radius:6px;
+                        font-size:18px;
+                        height:46px;
+                        line-height:46px;
+                        span{
+                            float: left;
+                            height: 46px;
+                            width: 46px;
+                            text-align:center;
+                            line-height:46px;
+                            color:gray;
+                            font-size:20px;
+                        }
+                        input{
+                            padding:12px 12px 12px 15px;
+                            color: #bebebe;
+                            float: left;
+                            font-size: 16px;
+                            height:22px;
+                            line-height:22px;
+                            width:290px;
+                            border:none;
+                        }
+                      
+                    }
+                }
+                ._3{
+                    padding:0 5px;
+                    height:12px;
+                    margin:15px 0 25px 0;;
+                    .l{
+                        line-height:12px;
+                        height:12px;
+                        font-size:12px;
+                        float:left;
+                        color:gray;
+                    }
+                    .r{
+                        line-height:12px;
+                        height:12px;
+                        font-size:12px;
+                        float:right;
+                        color:gray;
+                        ._1{
+                            height:12px;
+                            float:left;
+                            margin-right:8px;
+                            border-right:1px solid gray;
+                            padding-right:9px;
+                        }
+                        ._2{
+                            height:12px;
+                            float:left;
+                            margin-right:3px;
+                        }
+                    }
+                }
+            }
+            .dlbtn{
+                height:48px;
+                margin-top:30px;
+                input{
+                    background:#6790e2;
+                    border-radius:6px;
+                    border:none;
+                    width:100%;
+                    height:100%;
+                    font-size:18px;
+                    color:white;
+                }
+            }
+            .others{
+                height:18px;
+                padding-top:2px;
+                margin:24px 0 10px 0;
+                ul{
+                    li{
+                        margin-right:5px;
+                        font-size:16px;
+                        line-height:18px;
+                        color:gray;
+                        float:left;
+                    }
+                    .wx:hover{
+                        color:green;
+                    }
+                    .wb:hover{
+                        color:red;
+                    }
+                    .qq:hover{
+                        color:#007acc;
+                    }
+                    .zfb:hover{
+                        color:#007acc;
+                    }
+                    .zc{
+                        float:right;
+                        font-weight:500;
+                        font-size:16px;
+                        line-height:18px;
+                    }
+                }
+            }
+            .footer{
+                margin-top:30px;
+                border-top:1px solid gray;
+                padding-top:20px;
+                height:12px;
+                text-align:center;
+                font-size:12px;
+                line-height:12px;
+                color:gray;
+            }
+        }
+    }
+    .xx{
+        margin-top:60px;
+        padding-bottom:60px;
+        width:100%;
+        p{
+            width:100%;
+            height:15px;
+            line-height:15px;
+            font-size:12px;
+            text-align:center;
+            color:gray;
+        }
+        h4{
+            padding-top:10px;
+            height:12px;
+            line-height:12px;
+            font-size:12px;
+            text-align:center;
+            color:#007acc;
+        }
     }
 }

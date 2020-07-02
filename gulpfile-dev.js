@@ -2,7 +2,6 @@ const {task,src,dest,watch,series,parallel} = require('gulp');
 const load = require('gulp-load-plugins')();
 const del = require('del');
 
-console.log(1232313)
 //删除dist目录的内容
 task('del',async ()=>{
     await del('./dist')
@@ -26,6 +25,7 @@ task('img',async ()=>{
 task('js',async ()=>{
     src('./src/js/*.js')
     .pipe(load.babel({presets:['@babel/preset-env']}))
+    .on('error',function(err){console.log(err)})
     .pipe(dest('./dist/js'))
     .pipe(load.connect.reload())
 });
@@ -37,6 +37,20 @@ task('sass',async ()=>{
     .pipe(dest('./dist/css'))
     .pipe(load.connect.reload())
 });
+
+task('json',async ()=>{
+    src('./src/json/*.json')
+    .pipe(dest('./dist/json'))
+})
+task('slt',async ()=>{
+    src('./src/font_powhtw0vnkg/*.*')
+    .pipe(dest('./dist/font_powhtw0vnkg'))
+})
+task('php',async ()=>{
+    src('./src/php/*.php')
+    .pipe(dest('./dist/php'))
+    .pipe(load.connect.reload())
+} )
 task('connect',async ()=>{
     load.connect.server({
         root: './dist',
@@ -50,10 +64,13 @@ task('watch',async ()=>{
     watch('./src/img/*.*',series('img'));
     watch('./src/sass/*.scss',series('sass'));
     watch('./src/js/*.js',series('js'));
+    watch('./src/json/*.json',series('json'));
+    watch('./src/php/*.php',series('php'));
+
 
 
 });
-task('dev',series('del','html','img','js','sass','connect','watch'));
+task('dev',series('del','html','img','js','php','sass','slt','json','connect','watch'));
 
 
 

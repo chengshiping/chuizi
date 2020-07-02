@@ -1,0 +1,22 @@
+[
+    {"code":"a1", "img":"../img/list_1.jpg","title":"地平线 8号 收纳袋2四件套","price":"199.00","price2":"299.00","data":"地平线箱包 限时直降"},
+    {"code":"a2", "img":"../img/list_2.jpg","title":"地平线 8号 Lite版20寸登机箱","price":"399.00","price2":"699.00","data":"地平线箱包 限时直降"},
+    {"code":"a3", "img":"../img/list_3.jpg","title":"地平线 8 号旅行箱 春水绿","price":"369.00","price2":"399.00","data":"地平线箱包 限时直降"},
+    {"code":"a4", "img":"../img/list_4.jpg","title":"地平线 8 号 全功能城市背包 Atlas X","price":"269.00","price2":"299.00","data":"地平线箱包 限时直降"},
+    {"code":"a5", "img":"../img/list_5.jpg","title":"地平线 8 号商务旅行箱","price":"1059.00","price2":"1199.00","data":"为了野心和远方"},
+    {"code":"a6", "img":"../img/list_6.jpg","title":"坚果 弯头数据线（Type-C）","price":"24.9","price2":"30.00","data":"“3A”大电流"},
+    {"code":"a7", "img":"../img/list_7.jpg","title":"坚果快充移动电源 10000mAh （18W max）","price":"99.00","price2":"129.00","data":" 支持QC3.0/PD3.0协议，USB-C口可支持苹果手机快充，小巧便携，多重安全防护"},
+    {"code":"a8", "img":"../img/list_8.jpg","title":"坚果彩虹数据线","price":"36.00","price2":"39.00","data":"精品配件，限时直降"},
+    {"code":"a9", "img":"../img/list_9.jpg","title":"坚果三脚架自拍杆","price":"89.00","price2":"99.00","data":"两种模式，随时随地都能拍得开心"},
+    {"code":"a10", "img":"../img/list_10.jpg","title":"坚果 Type-C To Type-C 数据线","price":"36.00","price2":"39.00","data":"TPE 环保材质，PTC 过温保护"},
+    {"code":"a11", "img":"../img/list_11.jpg","title":"坚果 QuickCharge 4+ 快速充电器","price":"85.00","price2":"98.00","data":"全面兼容的 18W 快速充电"},
+    {"code":"a12", "img":"../img/list_12.jpg","title":"Smartisan 半入耳式耳机","price":"39.00","price2":"59.00","data":"经典配色、专业调音、高品质麦克风"},
+    {"code":"a13", "img":"../img/list_13.jpg","title":"阳夫人 家居凉拖鞋 动物版","price":"25.00","price2":"29.00","data":"居家拖鞋直降"},
+    {"code":"a14", "img":"../img/list_14.jpg","title":"福建黑叶荔枝 漳州产地直发","price":"28.00","price2":"29.00","data":"鲜荔枝直降"},
+    {"code":"a15", "img":"../img/list_15.jpg","title":"硕非凡 灭蚊灯","price":"228.00","price2":"258.00","data":"灭蚊灯直降30元"},
+    {"code":"a16", "img":"../img/list_16.jpg","title":"金珍 鱿鱼仔","price":"21.00","price2":"23.00","data":"防暑季直销"},
+    {"code":"a17", "img":"../img/list_17.jpg","title":"小霸王 S9000A游戏机 16G","price":"298.00","price2":"298.00","data":"5.1寸护眼大屏 支持十大模拟器"},
+    {"code":"a18", "img":"../img/list_18.jpg","title":"小霸王 S9000A游戏机 16G","price":"428.00","price2":"428.00","data":"5.1寸护眼大屏 支持十大模拟器"},
+    {"code":"a19", "img":"../img/list_19.jpg","title":"依帽趣人防紫外线空顶帽","price":"59.00","price2":"69.00","data":"防暑季直销"},
+    {"code":"a20", "img":"../img/list_20.jpg","title":"APIYOO 成人声波电动牙刷  RL-AP7 SUP款","price":"368.00","price2":"368.00","data":"成人声波电动牙刷S限量款"}
+]

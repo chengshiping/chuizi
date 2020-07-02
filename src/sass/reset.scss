@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* 重置样式 */
+*{
+    margin:0;
+    padding:0;
+}
+h1,h2,h3,h4,h5,h6,figure,figcaption{
+    font-size:16px;
+    font-weight:normal; /*清除加粗*/
+}
+ul,ol,li{
+    list-style:none; /*去掉列表符号*/
+}
+b,strong{
+    font-weight:normal; /*清除加粗*/
+}
+em,i{
+    font-style: normal; /*倾斜清除*/
+}
+a,u{
+    text-decoration: none; /*去掉下划线*/
+}
+img{
+    border:0; /*清除图片在有超链接的时候，存在一个蓝色的边框*/
+}
+input{
+    outline:none;/*清除INPUT  聚焦时的 蓝色边框*/
+}
+.border_none{
+    border:none!important;
+}
+.float_left{
+    float:left;
+}
+.float_right{
+    float:right;
+}
+.bg_none{
+    background:none!important;
+}
+.margin_none{
+    margin: 0!important;
+}
+.clear_fix:after{
+    content:".";
+    display:block;
+    clear:both;
+    height:0;
+    overflow:hidden;
+    visibility:hidden;}
