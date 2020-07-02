@@ -1,9 +1,10 @@
 var user = getCookie('user')
-var spzj = 0
-var spzs = 0
+var spzj = parseInt(0)
+var spzs = parseInt(0)
 if(!user){
     removeCookie('goods')
 }else{
+    $('.kbym .dl').css('display','none')
     var goods = JSON.parse(getCookie('goods'))
     if(goods){
         $('.goodsbox').css('display','block')
@@ -33,7 +34,7 @@ if(!user){
                                     <div class="check">
                                         <input type="checkbox">
                                     </div>
-                                    <a href="#" class="img">
+                                    <a href="./goodsxq.html" class="img">
                                         <img src="${obj.img}" alt="">
                                     </a>
                                     <div class="xq">
@@ -307,6 +308,35 @@ $('.goodsbox').on('click','.goods .cz span',function(){
         $('.goodsxx').css('display','none')
         $('.plcz').css('display','none')
     }
+
+    var code = $(this).attr('code')
+    var dj
+    var num = $(this).parent().parent().find('.sl span').eq(1).text()
+    num = parseInt(num)
+    var Dom = $(this)
+    $.ajax({
+        url:'../json/goods.json',
+        type:'get',
+        dataType:'json',
+        success:function success(json){
+            $.each(json,function(index,item){
+                if(item.code == code){
+                    dj = item.price
+                    var xj = dj * num
+                    xj = xj.toFixed(2)
+                    dj = parseInt(dj)
+                        spzj = parseInt(spzj)
+                        xj = parseInt(xj)
+                        num = parseInt(num)
+                            spzj -= xj
+                            spzs -= num  
+                        spzj = spzj.toFixed(2)
+                    $('.plcz .r .je').html('应付总额：<span><em>￥</em>'+spzj+'</span>')
+                    $('.plcz .r .sl').html('已选择<span>'+spzs+'</span>件商品')
+                }
+            })
+        }
+    })
     
 })
 $('.goodsbox').on('click','.goods .sl .jian',function(){
@@ -350,9 +380,10 @@ $('.goodsbox').on('click','.goods .sl .jian',function(){
                         dj = parseInt(dj)
                         if(dom1.prop('checked')){
                             spzj = spzj - dj
-                        console.log(spzj)
                         spzs -= 1
-                        console.log(spzs)
+                        spzj = spzj.toFixed(2)
+                        $('.plcz .r .je').html('应付总额：<span><em>￥</em>'+spzj+'</span>')
+                        $('.plcz .r .sl').html('已选择<span>'+spzs+'</span>件商品')
                         }
                     }
                 })
@@ -397,10 +428,13 @@ $('.goodsbox').on('click','.goods .sl .jia',function(){
                         dom.html('<span>￥</span>'+xj)
                         dj = parseInt(dj)
                         if(dom1.prop('checked')){
-                            spzj = spzj + dj
-                        console.log(spzj)
-                        spzs += 1
-                        console.log(spzs)
+                            spzj = parseInt(spzj)
+                            xj = parseInt(xj)
+                            spzj += dj
+                            spzs += 1
+                            spzj = spzj.toFixed(2)
+                        $('.plcz .r .je').html('应付总额：<span><em>￥</em>'+spzj+'</span>')
+                        $('.plcz .r .sl').html('已选择<span>'+spzs+'</span>件商品')
                         }
                     }
                 })
@@ -418,6 +452,45 @@ $('.middle').on('click','.plcz .checkall input',function(){
     }else{
         check.prop('checked',false)
     }
+    // var codeArr = $('.middle .goods .cz span').attr('code'))
+    var codeArr = []
+    $.each($('.middle .goods .cz span'),function(index,item){
+        codeArr.push($(item).attr('code'))
+    })
+    var dj
+    $.ajax({
+        url:'../json/goods.json',
+        type:'get',
+        dataType:'json',
+        success:function success(json){
+            spzj = 0
+            spzs = 0
+            if(!$('.middle .goods .check input').prop('checked')){
+                
+            }else{
+                for(var i=0;i<codeArr.length;i++){
+                 $.each(json,function(index,item){
+                   var num =  $('[code = "'+codeArr[i]+'"]').parent().next().next().children().eq(1).text()
+                   num = parseInt(num)
+                if(item.code == codeArr[i]){
+                    dj = item.price
+                    dj = parseInt(dj)
+                    var xj = dj * num
+                    xj = xj.toFixed(2)
+                    xj = parseInt(xj)
+                        spzj += xj
+                        spzs += num
+                }
+            })
+            }
+            }
+            spzj = spzj.toFixed(2)
+            $('.plcz .r .je').html('应付总额：<span><em>￥</em>'+spzj+'</span>')
+            $('.plcz .r .sl').html('已选择<span>'+spzs+'</span>件商品')
+           
+        }
+    })
+
 
 })
 $('.middle').on('click','.goods .check input',function(){
@@ -434,6 +507,40 @@ $('.middle').on('click','.goods .check input',function(){
     }else{
         $('.middle .plcz .checkall input').prop('checked',false)
     }
+    var code = $('.middle .goods .cz span').attr('code')
+    var dj
+    var num = $(this).parent().parent().find('.sl span').eq(1).text()
+    num = parseInt(num)
+    var Dom = $(this)
+    $.ajax({
+        url:'../json/goods.json',
+        type:'get',
+        dataType:'json',
+        success:function success(json){
+            $.each(json,function(index,item){
+                if(item.code == code){
+                    dj = item.price
+                    var xj = dj * num
+                    xj = xj.toFixed(2)
+                    dj = parseInt(dj)
+                        spzj = parseInt(spzj)
+                        xj = parseInt(xj)
+                        num = parseInt(num)
+                        if(Dom.prop('checked')){
+                            spzj += xj
+                            spzs += num
+                        }else{
+                            spzj -= xj
+                            spzs -= num
+                        }
+                        
+                        spzj = spzj.toFixed(2)
+                    $('.plcz .r .je').html('应付总额：<span><em>￥</em>'+spzj+'</span>')
+                    $('.plcz .r .sl').html('已选择<span>'+spzs+'</span>件商品')
+                }
+            })
+        }
+    })
 })
 
 

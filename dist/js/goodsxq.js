@@ -1,19 +1,21 @@
 "use strict";
 
 var user = getCookie('user');
-var Code;
+var Code = getCookie('Code');
 $.ajax({
   url: '../json/goods.json',
   type: 'get',
   dataType: 'json',
   success: function success(json) {
     for (var i = 0; i < json.length; i++) {
-      var goods = '<div class="sp">' + '<a class="img" href="./goodsxq.html">' + '<img src="' + json[i].img + '" alt="">' + '</a>' + '<h4>' + json[i].title + '</h4>' + '<h6>' + json[i].data + '</h6>' + '<div class="jg">' + '<span class="xj"><i>￥</i>' + json[i].price + '</span>' + '<span class="yj"><i>￥</i>' + json[i].price2 + '</span>' + '</div>' + '<div class="jrgwc">' + '<a href="#">查看详情</a>' + '<span code="' + json[i].code + '">加入购物车</span>' + '</div>' + '</div>';
-      $('.middle .lists').append(goods);
+      if (Code == json[i].code) {
+        var goods = "\n           <div class=\"l\">\n           <img src=\"".concat(json[i].img, "\" alt=\"\">\n       </div>\n       <div class=\"r\">\n           <h1>").concat(json[i].title, "</h1>\n           <h3>").concat(json[i].data, "</h3>\n           <p><span class=\"xj\">\uFFE5").concat(json[i].price, "</span> <span class=\"yj\">\uFFE5").concat(json[i].price2, "</span></p>\n           <span class=\"jrc\">\u52A0\u5165\u8D2D\u7269\u8F66</span>\n       </div>\n           ");
+        $('.middle .xxbox').append(goods);
+      }
     }
   }
 });
-$('.middle .lists').on('click', '.sp .jrgwc span', function () {
+$('.xxbox').on('click', '.r .jrc', function () {
   if (user) {
     var goods = getCookie('goods');
 

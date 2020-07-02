@@ -105,6 +105,19 @@ var main_title = document.querySelector('.nav .main_title')
 main_title.onmouseleave = function(){
     nav_list.style.display = "none"
 }
+getCookie('user')
+if(user){
+    $('.zxanniu').css('display','block')
+}else{
+    $('.zxanniu').css('display','none')
+}
+$('.zxanniu').click(function(){
+    if(confirm('您确定要退出登录吗')){
+         removeCookie('user')
+         removeCookie('goods')
+         window.location.href = './index.html'
+    }
+})
 
 
 

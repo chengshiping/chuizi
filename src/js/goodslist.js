@@ -1,13 +1,14 @@
 var user = getCookie('user')
+var Code
 $.ajax({
     url:'../json/goods.json',
     type:'get',
     dataType:'json',
     success:function(json){
-        console.log('ajaxqingqiul')
+        
        for(var i=0;i<json.length;i++){
            var goods =  '<div class="sp">'+
-           '<a class="img" href="#">'+
+           '<a class="img" href="./goodsxq.html">'+
                '<img src="'+json[i].img+'" alt="">'+
            '</a>'+
            '<h4>'+json[i].title+'</h4>'+
@@ -25,7 +26,6 @@ $.ajax({
        }
     }
 })
-
 $('.middle .lists').on('click','.sp .jrgwc span',function(){
     if(user){
        var goods = getCookie('goods')

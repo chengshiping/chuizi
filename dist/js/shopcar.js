@@ -1,12 +1,13 @@
 "use strict";
 
 var user = getCookie('user');
-var spzj = 0;
-var spzs = 0;
+var spzj = parseInt(0);
+var spzs = parseInt(0);
 
 if (!user) {
   removeCookie('goods');
 } else {
+  $('.kbym .dl').css('display', 'none');
   var goods = JSON.parse(getCookie('goods'));
 
   if (goods) {
@@ -24,7 +25,7 @@ if (!user) {
           $.each(json, function (i, obj) {
             if (obj.code == item.code) {
               var goodsDom = "";
-              goodsDom += "\n                                    <div class=\"goods\">\n                                    <div class=\"check\">\n                                        <input type=\"checkbox\">\n                                    </div>\n                                    <a href=\"#\" class=\"img\">\n                                        <img src=\"".concat(obj.img, "\" alt=\"\">\n                                    </a>\n                                    <div class=\"xq\">\n                                        <a href=\"#\">").concat(obj.title, "</a>\n                                        <p>").concat(obj.data, "</p>\n                                    </div>\n                                    <div class=\"cz\">\n                                        <span code=\"").concat(obj.code, "\">\xD7</span>\n                                    </div>\n                                    <div class=\"xj\">\n                                        <span>\uFFE5</span>").concat((obj.price * item.num).toFixed(2), "\n                                    </div>\n                                    <div class=\"sl\">\n                                        <span class=\"jian\">-</span>\n                                        <span class=\"show\">").concat(item.num, "</span>\n                                        <span class=\"jia\">+</span>\n                                    </div>\n                                    <div class=\"dj\">\n                                        <span>\uFFE5</span>").concat(obj.price, "\n                                    </div>\n                                </div>\n                            ");
+              goodsDom += "\n                                    <div class=\"goods\">\n                                    <div class=\"check\">\n                                        <input type=\"checkbox\">\n                                    </div>\n                                    <a href=\"./goodsxq.html\" class=\"img\">\n                                        <img src=\"".concat(obj.img, "\" alt=\"\">\n                                    </a>\n                                    <div class=\"xq\">\n                                        <a href=\"#\">").concat(obj.title, "</a>\n                                        <p>").concat(obj.data, "</p>\n                                    </div>\n                                    <div class=\"cz\">\n                                        <span code=\"").concat(obj.code, "\">\xD7</span>\n                                    </div>\n                                    <div class=\"xj\">\n                                        <span>\uFFE5</span>").concat((obj.price * item.num).toFixed(2), "\n                                    </div>\n                                    <div class=\"sl\">\n                                        <span class=\"jian\">-</span>\n                                        <span class=\"show\">").concat(item.num, "</span>\n                                        <span class=\"jia\">+</span>\n                                    </div>\n                                    <div class=\"dj\">\n                                        <span>\uFFE5</span>").concat(obj.price, "\n                                    </div>\n                                </div>\n                            ");
               $('.goodsbox').append(goodsDom);
             }
           });
@@ -167,6 +168,35 @@ $('.goodsbox').on('click', '.goods .cz span', function () {
     $('.goodsxx').css('display', 'none');
     $('.plcz').css('display', 'none');
   }
+
+  var code = $(this).attr('code');
+  var dj;
+  var num = $(this).parent().parent().find('.sl span').eq(1).text();
+  num = parseInt(num);
+  var Dom = $(this);
+  $.ajax({
+    url: '../json/goods.json',
+    type: 'get',
+    dataType: 'json',
+    success: function success(json) {
+      $.each(json, function (index, item) {
+        if (item.code == code) {
+          dj = item.price;
+          var xj = dj * num;
+          xj = xj.toFixed(2);
+          dj = parseInt(dj);
+          spzj = parseInt(spzj);
+          xj = parseInt(xj);
+          num = parseInt(num);
+          spzj -= xj;
+          spzs -= num;
+          spzj = spzj.toFixed(2);
+          $('.plcz .r .je').html('应付总额：<span><em>￥</em>' + spzj + '</span>');
+          $('.plcz .r .sl').html('已选择<span>' + spzs + '</span>件商品');
+        }
+      });
+    }
+  });
 });
 $('.goodsbox').on('click', '.goods .sl .jian', function () {
   var goods = getCookie('goods');
@@ -210,9 +240,10 @@ $('.goodsbox').on('click', '.goods .sl .jian', function () {
 
             if (dom1.prop('checked')) {
               spzj = spzj - dj;
-              console.log(spzj);
               spzs -= 1;
-              console.log(spzs);
+              spzj = spzj.toFixed(2);
+              $('.plcz .r .je').html('应付总额：<span><em>￥</em>' + spzj + '</span>');
+              $('.plcz .r .sl').html('已选择<span>' + spzs + '</span>件商品');
             }
           }
         });
@@ -257,10 +288,13 @@ $('.goodsbox').on('click', '.goods .sl .jia', function () {
           dj = parseInt(dj);
 
           if (dom1.prop('checked')) {
-            spzj = spzj + dj;
-            console.log(spzj);
+            spzj = parseInt(spzj);
+            xj = parseInt(xj);
+            spzj += dj;
             spzs += 1;
-            console.log(spzs);
+            spzj = spzj.toFixed(2);
+            $('.plcz .r .je').html('应付总额：<span><em>￥</em>' + spzj + '</span>');
+            $('.plcz .r .sl').html('已选择<span>' + spzs + '</span>件商品');
           }
         }
       });
@@ -274,7 +308,46 @@ $('.middle').on('click', '.plcz .checkall input', function () {
     check.prop('checked', true);
   } else {
     check.prop('checked', false);
-  }
+  } // var codeArr = $('.middle .goods .cz span').attr('code'))
+
+
+  var codeArr = [];
+  $.each($('.middle .goods .cz span'), function (index, item) {
+    codeArr.push($(item).attr('code'));
+  });
+  var dj;
+  $.ajax({
+    url: '../json/goods.json',
+    type: 'get',
+    dataType: 'json',
+    success: function success(json) {
+      spzj = 0;
+      spzs = 0;
+
+      if (!$('.middle .goods .check input').prop('checked')) {} else {
+        for (var i = 0; i < codeArr.length; i++) {
+          $.each(json, function (index, item) {
+            var num = $('[code = "' + codeArr[i] + '"]').parent().next().next().children().eq(1).text();
+            num = parseInt(num);
+
+            if (item.code == codeArr[i]) {
+              dj = item.price;
+              dj = parseInt(dj);
+              var xj = dj * num;
+              xj = xj.toFixed(2);
+              xj = parseInt(xj);
+              spzj += xj;
+              spzs += num;
+            }
+          });
+        }
+      }
+
+      spzj = spzj.toFixed(2);
+      $('.plcz .r .je').html('应付总额：<span><em>￥</em>' + spzj + '</span>');
+      $('.plcz .r .sl').html('已选择<span>' + spzs + '</span>件商品');
+    }
+  });
 });
 $('.middle').on('click', '.goods .check input', function () {
   var selectArr = [];
@@ -291,4 +364,40 @@ $('.middle').on('click', '.goods .check input', function () {
   } else {
     $('.middle .plcz .checkall input').prop('checked', false);
   }
+
+  var code = $('.middle .goods .cz span').attr('code');
+  var dj;
+  var num = $(this).parent().parent().find('.sl span').eq(1).text();
+  num = parseInt(num);
+  var Dom = $(this);
+  $.ajax({
+    url: '../json/goods.json',
+    type: 'get',
+    dataType: 'json',
+    success: function success(json) {
+      $.each(json, function (index, item) {
+        if (item.code == code) {
+          dj = item.price;
+          var xj = dj * num;
+          xj = xj.toFixed(2);
+          dj = parseInt(dj);
+          spzj = parseInt(spzj);
+          xj = parseInt(xj);
+          num = parseInt(num);
+
+          if (Dom.prop('checked')) {
+            spzj += xj;
+            spzs += num;
+          } else {
+            spzj -= xj;
+            spzs -= num;
+          }
+
+          spzj = spzj.toFixed(2);
+          $('.plcz .r .je').html('应付总额：<span><em>￥</em>' + spzj + '</span>');
+          $('.plcz .r .sl').html('已选择<span>' + spzs + '</span>件商品');
+        }
+      });
+    }
+  });
 });
