@@ -8,7 +8,7 @@ $.ajax({
         
        for(var i=0;i<json.length;i++){
            var goods =  '<div class="sp">'+
-           '<a class="img" href="./goodsxq.html">'+
+           '<a class="img" href="#">'+
                '<img src="'+json[i].img+'" alt="">'+
            '</a>'+
            '<h4>'+json[i].title+'</h4>'+
@@ -18,7 +18,7 @@ $.ajax({
                '<span class="yj"><i>￥</i>'+json[i].price2+'</span>'+
            '</div>'+
            '<div class="jrgwc">'+
-               '<a href="#">查看详情</a>'+
+               '<a href="./goodsxq.html">查看详情</a>'+
                '<span code="'+json[i].code +'">加入购物车</span>'+
            '</div>'+
        '</div>'
@@ -56,4 +56,13 @@ $('.middle .lists').on('click','.sp .jrgwc span',function(){
     }else{
         alert('请往登录再进行购买')
     }
+})
+$('.middle .lists').on('click','.sp .jrgwc a',function(){
+    var Code = $(this).next().attr('code')
+    console.log(Code)
+    setCookie({
+        key:'Code',
+        val:Code,
+        days:1
+    })
 })

@@ -118,6 +118,27 @@ $('.zxanniu').click(function(){
          window.location.href = './index.html'
     }
 })
+var ipt = document.querySelector('.nav .main_title .r .txt')
+var list = document.querySelector('.nav .main_title .r .tsc')
+ipt.onkeyup = function (){
+    if(!ipt.value){
+        list.innerHTML = '';
+        return;
+    }
+    var Script = document.createElement('script');
+    Script.src = 'http://suggestion.baidu.com/su?cb=success&wd='+ipt.value;
+    document.body.appendChild(Script);
+    Script.onload = function (){// 加载完成后删除该标签
+        document.body.removeChild(Script);
+    }
+    function success(json){//请求成功执行的函数
+        list.innerHTML = '';//插入数据之前，先清空
+        for(var i = 0; i < json.s.length;i++){
+            list.innerHTML += '<li>'+json.s[i]+'</li>'; 
+        }
+    }
+    window.success = success;//  把局部函数success声明为全局函数 
+}
 
 
 

@@ -135,6 +135,7 @@ body {
               margin-right: 30px;
               cursor: pointer; }
         #app .nav .nav_wrap .main_title .r {
+          position: relative;
           width: 330px;
           height: 36px;
           margin: 22px 10px 0 0;
@@ -159,6 +160,22 @@ body {
             border-radius: 0 15px 15px 0;
             background: white;
             color: #666; }
+          #app .nav .nav_wrap .main_title .r .tsc {
+            width: 286px;
+            position: absolute;
+            top: 40px;
+            right: 32px;
+            z-index: 99;
+            border-radius: 8px;
+            background: #fafafa; }
+            #app .nav .nav_wrap .main_title .r .tsc li {
+              height: 30px;
+              background: white;
+              font-size: 20px;
+              line-height: 32px;
+              font-weight: 500;
+              padding-left: 28px;
+              overflow: hidden; }
         #app .nav .nav_wrap .main_title .nav_list {
           z-index: 100;
           top: 75px;
